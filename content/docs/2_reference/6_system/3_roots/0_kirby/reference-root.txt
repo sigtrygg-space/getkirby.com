@@ -3,3 +3,26 @@ Title: kirby
 ----
 
 Intro: Returns the root of the Kirby core folder
+
+----
+
+Custom:
+
+If you want to overwrite the root you can do this in your `index.php` by passing a custom roots setup to the Kirby constructor.
+
+```php "/index.php"
+<?php
+
+// Use autoloader instead of bootstrap (see comment in bootstrap "users need to load the autoloader themselves")
+
+include '/absolute/path/to/custom/root/vendor/autoload.php';
+
+$kirby = new Kirby([
+    'roots' => [
+        'kirby' => '/absolute/path/to/custom/root',
+    ],
+]);
+
+echo $kirby->render();
+
+```
